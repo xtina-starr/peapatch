@@ -8,11 +8,17 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'better_errors'
-gem "binding_of_caller"
+gem 'binding_of_caller'
+gem 'figaro'
+gem 'sinatra'
+gem 'google_calendar_oauth2'
+gem "omniauth"
+gem "omniauth-twitter"
 gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
 gem 'autoprefixer-rails'
 gem 'semantic-ui-rails'
+
 
 group :development, :test do
   gem "rspec-rails"
