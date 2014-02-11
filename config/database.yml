@@ -23,6 +23,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: peapath_production
+  database: peapatch_production
   pool: 5
   host: localhost
