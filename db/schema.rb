@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140211172753) do
 
   # These are extensions that must be enabled in order to support this database
@@ -25,6 +26,21 @@ ActiveRecord::Schema.define(version: 20140211172753) do
     t.boolean  "admin",               default: false
     t.string   "access_token"
     t.string   "access_token_secret"
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.datetime "datetime"
+    t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

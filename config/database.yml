@@ -25,4 +25,4 @@ production:
   encoding: unicode
   database: peapatch_production
   pool: 5
-  host: localhost
+

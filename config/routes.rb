@@ -3,9 +3,20 @@ Peapatch::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
- root 'welcome#index'
- get "/auth/:provider/callback", to: "sessions#create"
- post "/auth/:provider/callback", to: "sessions#create"
+
+  root 'welcome#index'
+
+  # Twitter auth
+  get "/auth/:provider/callback", to: "sessions#create"
+  post "/auth/:provider/callback", to: "sessions#create"
+
+  # Posts
+  get  'posts/new'    => 'posts#new',    as: :new_post
+  post 'posts/create' => 'posts#create', as: :create_post
+  get  'posts/:id'    => 'posts#show',   as: :post
+  get  'posts/index'  => 'posts#index',  as: :posts
+  
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

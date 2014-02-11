@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id='header' class='ui segment'>
+    <div class='ui huge center aligned header'>
+      <%= link_to('Post', posts_path) %>
+      <%= link_to(image_tag('peainpod.jpg', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/') %>
+    </div>
+  </div>
 
 <%= yield %>
 
