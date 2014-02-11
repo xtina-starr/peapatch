@@ -6,5 +6,11 @@
 # STRIPE_API_KEY: EdAvEPVEC3LuaTg5Q3z6WbDVqZlcBQ8Z
 # STRIPE_PUBLIC_KEY: pk_BRgD57O8fHja9HxduJUszhef6jCyS
 
-GOOGLE_USERNAME: 'feedhunter2014@gmail.com'
-GOOGLE_PASSWORD: '13lovelaces'
+GOOGLE_ID: "example"
+GOOGLE_KEY: "example"
+GOOGLE_SECRET: "example"
+
+TWITTER_KEY: "example"
+TWITTER_SECRET: "example"
+TWITTER_ACCESS_TOKEN: "example"
+TWITTER_ACCESS_TOKEN_SECRET: "example"
