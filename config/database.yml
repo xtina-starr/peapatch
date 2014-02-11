@@ -18,6 +18,7 @@ test:
   encoding: unicode
   database: peapatch_test
   pool: 5
+  host: localhost
 
 production:
   adapter: postgresql

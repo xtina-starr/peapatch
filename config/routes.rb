@@ -5,6 +5,10 @@ Peapatch::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get  'posts/new'    => 'posts#new',    as: :new_post
+  post 'posts/create' => 'posts#create', as: :create_post
+  get  'posts/:id'    => 'posts#show',   as: :post
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
