@@ -2,3 +2,6 @@
   <%= link_to('New', new_post_path) %>
   <%= link_to('Index', posts_path) %>
 </div>
+<h1><%= @post.title %></h1><br>
+<small><%= @post.datetime %></small><br>
+<p><%= @post.content %></p>

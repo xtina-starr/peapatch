@@ -5,8 +5,8 @@
   </div>
 </div>
 
-<% @posts.each do |post| %>
-  <%= post.title %><br>
-  <%= post.datetime %><br>
-  <%= post.content %><br>
+<% sorted_post = @posts.sort_by {|post| post.datetime }.reverse %>
+<% sorted_post.each do |post| %>
+  <small><%= post.datetime.in_time_zone("Pacific Time (US & Canada)").strftime("%A, %B %d, %Y %I:%M%p") %></small><br>
+  <%= link_to(post.title, post_path(post.id)) %><br><br>
 <% end %>

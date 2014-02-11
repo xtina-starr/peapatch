@@ -223,6 +223,8 @@
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/Ellen/Documents/ada_homework/in_progress/peapatch/app/helpers/application_helper.rb": [
@@ -275,6 +277,9 @@
         null,
         null,
         1,
+        null,
+        null,
+        1,
         1,
         4,
         null,
@@ -287,15 +292,43 @@
         1,
         null
       ],
+      "/Users/Ellen/Documents/ada_homework/in_progress/peapatch/spec/models/post_spec.rb": [
+        1,
+        null,
+        1,
+        6,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/Ellen/Documents/ada_homework/in_progress/peapatch/app/models/post.rb": [
         1,
-        1,
+        null,
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1392142375
+    "timestamp": 1392147516
   }
 }

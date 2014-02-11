@@ -1,6 +1,7 @@
-<div class='ui form segment'>
+<div class='ui error form segment'>
   <% if @post.errors.any? %>
     <div class='ui error message'>
+      <div class='header'>Oops!</div>
       <% @post.errors.full_messages.each do |msg| %>
         <%= msg %><br>
       <% end %>
@@ -10,5 +11,10 @@
   <%= form_for(@post, url: create_post_path) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
+    <%= f.hidden_field :datetime, value: DateTime.now %>
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+    <!-- f.hidden_field :user_id, value: @current_user.id -->
+    <%= f.submit class: 'ui green submit button' %>
   <% end %>
 </div>
