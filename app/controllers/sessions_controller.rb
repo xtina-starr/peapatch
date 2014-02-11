@@ -11,12 +11,16 @@ class SessionsController < ApplicationController
         redirect_to "/", notice: "Failed to save user."
       end
     else
-      redirect_to "/", notice: "Failed to authenticate. Please try a dragon."
+      redirect_to "/", notice: "Failed to authenticate. Please try again."
     end
   end
 
-  def sign_out
-    session[user_id] = nil
+  def signin
+    redirect_to "/auth/twitter"
+  end
+
+  def signout
+    session[:user_id] = nil
     redirect_to "/", notice: "You have been successfully signed out."
   end
 
