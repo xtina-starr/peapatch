@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Peapatch::Application.config.secret_key_base = '2bc07c11f8d84342525720288cb165541a7a321ef1a0e7bd5d5190d4b92a392a5bb260d285c2d21612cae78342dd0bbbcea4ae680358a1e9930eecac4e5ec52c'
+Peapatch::Application.config.secret_key_base = 'e8be0b98c33aff1bd046071d68c7b77a4eb1a0633ea25aa5485ae5e8c9e09c6cc42ddf6bdc7aa4247f6cba9f15c7c079d12803be4857780670a4e9f31a1c4d71'
