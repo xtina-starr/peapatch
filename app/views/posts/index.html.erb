@@ -1,0 +1,12 @@
+<div class='ui segment'>
+  <div id='post-header' class='ui justified header'>
+    <%= link_to('New', new_post_path) %>
+    <%= link_to('Index', posts_path) %>
+  </div>
+</div>
+
+<% @posts.each do |post| %>
+  <%= post.title %><br>
+  <%= post.datetime %><br>
+  <%= post.content %><br>
+<% end %>

@@ -8,6 +8,8 @@ Peapatch::Application.routes.draw do
   get  'posts/new'    => 'posts#new',    as: :new_post
   post 'posts/create' => 'posts#create', as: :create_post
   get  'posts/:id'    => 'posts#show',   as: :post
+  get  'posts/index'  => 'posts#index',  as: :posts
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
