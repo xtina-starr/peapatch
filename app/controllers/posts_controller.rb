@@ -5,15 +5,28 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to post_path(@post.id), notice: "Your post was created!"
+    unless @current_user.nil?
+      if @current_user.admin
+        @post = @current_user.posts.create(post_params)
+        if @post.save
+          redirect_to post_path(@post.id), notice: "Your post was created!"
+        else
+          render new_post_path
+        end
+      else
+        redirect_to root_path, notice: "Only a logged-in administrator can write posts"
+      end
     else
-      render new_post_path
+      redirect_to root_path, notice: "Only a logged-in administrator can write posts"
     end
   end
 
   def index
     @posts = Post.all 
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private

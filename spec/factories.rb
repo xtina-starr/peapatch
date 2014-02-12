@@ -5,4 +5,15 @@ FactoryGirl.define do
     datetime Time.now
     user_id 1
   end
+
+  factory :user do 
+    uid 'a uid'
+    provider 'a provider'
+    avatar_url "an avatar_url"
+    username "username"
+    email  "email"
+    admin true
+    access_token "access_token"
+    access_token_secret "access_token_secret"
+  end
 end

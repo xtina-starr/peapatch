@@ -15,9 +15,10 @@ Peapatch::Application.routes.draw do
   # Posts
   get  'posts/new'    => 'posts#new',    as: :new_post
   post 'posts/create' => 'posts#create', as: :create_post
+  get  'posts'        => 'posts#index',  as: :posts
   get  'posts/:id'    => 'posts#show',   as: :post
-  get  'posts/index'  => 'posts#index',  as: :posts
-  
+
+
 
 
   # Example of regular route:

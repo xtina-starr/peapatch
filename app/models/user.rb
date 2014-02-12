@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts
   validates :uid, :username, :provider, presence: true 
 
   def self.find_or_create_from_omniauth(auth_hash)
