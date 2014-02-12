@@ -16,4 +16,11 @@ FactoryGirl.define do
     access_token 'somenumbers12345'
     access_token_secret 'shhhitsasecret12345'
   end
+
+  factory :tool do
+    id 1
+    kind 'rake'
+    user_id 1
+  end
+
 end
