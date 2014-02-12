@@ -50,9 +50,9 @@ describe PostsController do
         expect{ post :create, post: valid_attributes }.to change(Post, :count).by(0)
       end
 
-      it 'redirects to the new user template' do 
+      it 'redirects to the root path' do 
         post :create, post: valid_attributes
-        expect(response).to redirect_to new_user_path
+        expect(response).to redirect_to root_path
       end
     end
   end

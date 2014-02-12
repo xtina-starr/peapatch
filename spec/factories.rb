@@ -12,7 +12,7 @@ FactoryGirl.define do
     avatar_url "an avatar_url"
     username "username"
     email  "email"
-    admin "admin"
+    admin true
     access_token "access_token"
     access_token_secret "access_token_secret"
   end
