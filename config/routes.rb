@@ -1,4 +1,6 @@
 Peapatch::Application.routes.draw do
+  require 'resque/server'
+  mount Resque::Server, :at => "/resque"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,11 +20,17 @@ Peapatch::Application.routes.draw do
   post 'tools/checkin', to: 'tools#checkin_tool', as: :checkin
 
   # Posts
-  get  'posts/new'    => 'posts#new',    as: :new_post
-  post 'posts/create' => 'posts#create', as: :create_post
-  get  'posts/:id'    => 'posts#show',   as: :post
-  get  'posts/index'  => 'posts#index',  as: :posts
-  
+  get  'posts/new'    => 'posts#new',     as: :new_post
+  post 'posts/create' => 'posts#create',  as: :create_post
+  get  'posts'        => 'posts#index',   as: :posts
+  get  'posts/:id'    => 'posts#show',    as: :post
+
+  # Comments
+  get    'comments/new'        => 'comments#new',     as: :new_comment
+  post   'comments/create'     => 'comments#create',  as: :create_comment
+  get    'comments'            => 'comments#index',   as: :comments 
+  get    'comments/:id'        => 'comments#show',    as: :comment
+  delete 'destroy/comment/:id' => 'comments#destroy', as: :destroy_comment
 
 
   # Example of regular route:

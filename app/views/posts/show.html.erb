@@ -2,3 +2,24 @@
   <%= link_to('New', new_post_path) %>
   <%= link_to('Index', posts_path) %>
 </div>
+<h1><%= @post.title %></h1><br>
+<small><%= @post.datetime %></small><br>
+<p><%= @post.content %></p>
+
+<br>
+<div class='comments'>
+  <% if @post.comments.length > 0 %>
+    <% @post.comments.each do |comment| %>
+      <div class='comment<%=comment.id%>'>
+        <span><%= comment.content %></span> 
+        <% if comment.user_id == @current_user.id %>
+          <%= link_to 'Delete', destroy_comment_path(comment.id), method: :delete, remote: true, class: 'delete' %>
+        <% end %>
+      </div><br>
+    <% end %>
+  <% end %>
+</div>
+
+<% unless @current_user.nil? %>
+  <%= render '/comments/form' %>
+<% end %>
