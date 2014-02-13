@@ -8,12 +8,16 @@ describe CommentsController do
   end
   
   describe 'POST create' do 
+    before(:each) do
+      request.env["HTTP_REFERER"] = "/"
+    end
     context 'with valid attributes' do 
       let(:current_user) { create(:user) }
+      let(:valid_post) { create(:post) }
       before(:each) do
         controller.instance_variable_set(:@current_user, current_user)
       end
-      let(:valid_attributes) { { post_id: 1, content: 'Some valid content', datetime: DateTime.now } }
+      let(:valid_attributes) { { post_id: valid_post.id, content: 'Some valid content', datetime: DateTime.now } }
       
       it 'redirects' do
         post :create, comment: valid_attributes
@@ -36,9 +40,9 @@ describe CommentsController do
         controller.instance_variable_set(:@current_user, current_user)
       end
 
-      it 'renders the new template' do 
+      it 'redirects' do 
         post :create, comment: invalid_attributes 
-        expect(response).to render_template :new
+        expect(response.status).to eq(302)
       end
       it 'does not increase the Comment count' do 
         expect { post :create, comment: invalid_attributes }.to change(Comment, :count).by(0)
