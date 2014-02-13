@@ -5,4 +5,8 @@ class Tool < ActiveRecord::Base
     tools = Tool.where(kind: tool_type, user_id: nil)
     tools.first
   end
+
+  def self.user_tools(user)
+    tools = Tool.where(user_id: user.id)
+  end
 end
