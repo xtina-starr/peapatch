@@ -8,8 +8,8 @@ describe Tool do
     end
 
     it 'kind is present' do
-      tool.update(kind: nil)
-      expect(tool.errors[:kind]).to include("can't be blank")
+      tool.kind = nil
+      expect(tool.valid?).to eq(false)
     end 
   end
 
@@ -21,10 +21,10 @@ describe Tool do
 
     it 'returns the first specific tool type with user_id nil' do
       first_tool = Tool.create(kind: 'rake', user_id: 1)
-      second_tool = Tool.create(kind: 'hoe', user_id: nil)
-      third_tool = Tool.create(kind: 'hoe', user_id: 1)
+      second_tool = Tool.create(kind: 'hoe', user_id: 1)
+      third_tool = Tool.create(kind: 'hoe', user_id: nil)
       
-      expect(Tool.available_tool("hoe")).to eq(second_tool)
+      expect(Tool.available_tool("hoe")).to eq(third_tool)
     end
   end
 
