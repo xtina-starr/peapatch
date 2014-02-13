@@ -1,1 +1,27 @@
-<%= notice %>
+<h1>Tools Library:</h1>
+
+<h3><%= notice %></h3>
+
+<ul>
+  <% Tool.all.each do |tool| %>
+    <li>
+      <%= tool.kind %>
+    </li>
+  <% end %>
+</ul>
+
+<table id="tools-table">
+  <% Tool.all.each do |tool| %>
+  <tr>
+    <td><%= tool.kind %></td>
+    <td>
+      <%= form_tag(checkout_path, method: "post") do %>
+        <%= hidden_field_tag(:kind, tool.kind) %>
+        <%= hidden_field_tag(:id, tool.id) %>
+        <%= hidden_field_tag(:user_id, @current_user) %> 
+        <%= submit_tag("Check out") %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
