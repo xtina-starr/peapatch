@@ -5,11 +5,20 @@ class ToolsController < ApplicationController
 
   def checkout_tool
     @tool = Tool.find(params[:id])
-    if Tool.available_tool(tool_type)
+    if Tool.available_tool(@tool.kind)
       @tool.user_id = @current_user.id 
+      @tool.save
+      redirect_to tools_path, notice: "You have checked out #{@tool.kind}."
     else
-      redirect_to "/", notice: "Unfortunately that tool is not available. Check back later."
+      redirect_to tools_path, notice: "Unfortunately that tool is not available. Check back later."
     end
+  end
+
+  def checkin_tool
+    @tool = Tool.find(params[:id])
+    @tool.user_id = nil
+    @tool.save
+    redirect_to tools_path, notice: "You have checked in #{@tool.kind}."
   end
 
 end
