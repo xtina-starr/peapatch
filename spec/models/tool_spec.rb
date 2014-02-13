@@ -14,17 +14,18 @@ describe Tool do
   end
 
   describe 'available_tool' do
+    let!(:tool) {create(:tool, kind: 'rake', user_id: nil)}
     it 'returns a tool object' do
-      tool.update(user_id: nil)
-      expect(Tool.available_tool).to be_an_instance_of(Tool)
+      expect(Tool.available_tool('rake')).to be_an_instance_of(Tool)
     end
 
-    
+    it 'returns the first specific tool type with user_id nil' do
+      first_tool = Tool.create(kind: 'rake', user_id: 1)
+      second_tool = Tool.create(kind: 'hoe', user_id: nil)
+      third_tool = Tool.create(kind: 'hoe', user_id: 1)
+      
+      expect(Tool.available_tool("hoe")).to eq(second_tool)
+    end
   end
-
-
-      # tool_collection = Tool.where(kind: "rake")
-      # free_tools = tool_collection.collect.where(user_id: nil)
-      # free_tools.first
 
 end
