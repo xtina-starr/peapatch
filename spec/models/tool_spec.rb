@@ -28,4 +28,15 @@ describe Tool do
     end
   end
 
+  describe 'user_tools' do
+    let(:user) {create(:user, id: 1)}
+    it 'returns tools checked out to a specific user' do
+      first_tool = Tool.create(kind: 'rake', user_id: 1)
+      second_tool = Tool.create(kind: 'hoe', user_id: nil)
+      third_tool = Tool.create(kind: 'hoe', user_id: 1)
+
+      expect(Tool.user_tools(user)).to eq([first_tool, third_tool])
+    end
+  end
+
 end
