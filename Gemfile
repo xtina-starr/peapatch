@@ -19,6 +19,8 @@ gem 'less-rails'
 gem 'autoprefixer-rails'
 gem 'semantic-ui-rails'
 gem 'resque'
+gem 'nokogiri'
+gem 'open-uri-s3'
 
 
 group :development, :test do
