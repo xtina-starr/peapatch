@@ -16,4 +16,11 @@ FactoryGirl.define do
     access_token "access_token"
     access_token_secret "access_token_secret"
   end
+
+  factory :comment do 
+    user_id 1 
+    post_id 1
+    content 'Some sweet valid comment content'
+    datetime Time.now
+  end
 end

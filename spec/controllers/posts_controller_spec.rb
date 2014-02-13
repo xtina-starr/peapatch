@@ -1,6 +1,5 @@
 require 'spec_helper'
 describe PostsController do 
-  let(:user) { create(:user) }
   describe "GET new" do
     it "is successful" do 
       get :new

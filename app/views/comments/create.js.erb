@@ -1,0 +1,2 @@
+$('.comments').append("<div class='comment<%=@comment.id%>'><span><%= j @comment.content %></span> <%= j link_to 'Delete', destroy_comment_path(@comment.id), method: :delete, remote: true, class: 'delete' %></div><br>");
+$('#new_comment')[0].reset();
