@@ -14,8 +14,8 @@ Peapatch::Application.routes.draw do
 
   # Tools
   get 'tools',  to: 'tools#index', as: :tools
-  post 'tools', to: 'tools#checkout_tool', as: :checkout 
-  post 'tools', to: 'tools#checkin_tool', as: :checkin
+  post 'tools/checkout', to: 'tools#checkout_tool', as: :checkout 
+  post 'tools/checkin', to: 'tools#checkin_tool', as: :checkin
 
   # Posts
   get  'posts/new'    => 'posts#new',    as: :new_post
