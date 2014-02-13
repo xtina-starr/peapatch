@@ -7,18 +7,23 @@ Peapatch::Application.routes.draw do
   root 'welcome#index'
 
   # Twitter auth
-  get 'signin', to: 'sessions#signin', as: :signin
-  get "auth/:provider/callback", to: "sessions#create"
+  get  'signin', to: 'sessions#signin', as: :signin
+  get  "auth/:provider/callback", to: "sessions#create"
   post "auth/:provider/callback", to: "sessions#create"
-  get 'signout', to: 'sessions#signout', as: :signout
+  get  'signout', to: 'sessions#signout', as: :signout
 
   # Posts
-  get  'posts/new'    => 'posts#new',    as: :new_post
-  post 'posts/create' => 'posts#create', as: :create_post
-  get  'posts'        => 'posts#index',  as: :posts
-  get  'posts/:id'    => 'posts#show',   as: :post
+  get  'posts/new'    => 'posts#new',     as: :new_post
+  post 'posts/create' => 'posts#create',  as: :create_post
+  get  'posts'        => 'posts#index',   as: :posts
+  get  'posts/:id'    => 'posts#show',    as: :post
 
-
+  # Comments
+  get    'comments/new'        => 'comments#new',     as: :new_comment
+  post   'comments/create'     => 'comments#create',  as: :create_comment
+  get    'comments'            => 'comments#index',   as: :comments 
+  get    'comments/:id'        => 'comments#show',    as: :comment
+  delete 'destroy/comment/:id' => 'comments#destroy', as: :destroy_comment
 
 
   # Example of regular route:
