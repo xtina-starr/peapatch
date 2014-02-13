@@ -7,9 +7,19 @@ describe ToolsController do
       end
 
     let!(:tool) { create(:tool, kind: 'rake', user_id: nil) }
-    it 'assign available tool to to user' do
+    it 'assign available tool to user' do
       post :checkout_tool, id: tool.id
-      expect(tool.user_id).to eq(current_user.id) 
+      expect(tool.reload.user_id).to eq(current_user.id) 
+    end
+  end
+
+  describe 'checkin_tool method' do
+    # let!(:tool) { create(:tool, kind: 'rake', user_id: 1) }
+    it 'sets user_id to nil' do
+      first_tool = Tool.create(kind: 'rake', user_id: 1)
+
+      post :checkin_tool, id: first_tool.id
+      expect(first_tool.reload.user_id).to eq(nil)
     end
   end
 end
