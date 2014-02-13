@@ -1,7 +1,10 @@
 class ToolsController < ApplicationController
 
   def index
+    @all_the_tools = Tool.all
+    @users_checkedout_tools = Tool.user_tools(@current_user)
   end
+
 
   def checkout_tool
     @tool = Tool.find(params[:id])
