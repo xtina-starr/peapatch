@@ -11,9 +11,11 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'figaro'
 gem 'sinatra'
-gem 'google_calendar_oauth2'
+gem 'google_calendar'
 gem "omniauth"
 gem "omniauth-twitter"
+gem "omniauth-google-oauth2" #for using the Google API to add to the event calendar
+gem 'omniauth-google' #having issues; covering bases
 gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
 gem 'autoprefixer-rails'
