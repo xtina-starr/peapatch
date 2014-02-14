@@ -6,6 +6,12 @@ FactoryGirl.define do
     user_id 1
   end
 
+  factory :tool do
+    id 1
+    kind 'rake'
+    user_id 1
+  end
+
   factory :user do 
     uid 'a uid'
     provider 'a provider'
