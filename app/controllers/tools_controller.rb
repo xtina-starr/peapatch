@@ -2,7 +2,11 @@ class ToolsController < ApplicationController
 
   def index
     @all_the_tools = Tool.all
-    @users_checkedout_tools = Tool.user_tools(@current_user)
+    if current_user
+      @users_checkedout_tools = Tool.user_tools(@current_user)
+    else
+      redirect_to "/", notice: "You must be longed in to do that."
+    end
   end
 
 

@@ -2,39 +2,41 @@
 
 <h3><%= notice %></h3>
 
-
-<h4>Available Tool:</h4>
-<table id="available-tools">
-  
-  <% @all_the_tools.each do |tool| %>
-    <% if tool.user_id.nil? %>
-      <tr>
-        <td><%= tool.kind %></td>
-        <td>
-          <%= form_tag(checkout_path, method: "post") do %>
-            <%= hidden_field_tag(:kind, tool.kind) %>
-            <%= hidden_field_tag(:id, tool.id) %>
-            <%= hidden_field_tag(:user_id, @current_user) %> 
-            <%= submit_tag("Check out") %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  <% end %>
-</table>
-
-<h4>Tools you've checked out:</h4>
-<table id="users-tools">
-
-<% @users_checkedout_tools.each do |tool| %>
-  <tr>
-    <td><%= tool.kind %></td>
-    <td>
-      <%= form_tag(checkin_path, method: "post") do %>
-        <%= hidden_field_tag(:id, tool.id) %>
-        <%= submit_tag("Check in") %>
+<% if current_user %>
+  <h4>Available Tool:</h4>
+  <table id="available-tools">
+    
+    <% @all_the_tools.each do |tool| %>
+      <% if tool.user_id.nil? %>
+        <tr>
+          <td><%= tool.kind %></td>
+          <td>
+            <%= form_tag(checkout_path, method: "post") do %>
+              <%= hidden_field_tag(:kind, tool.kind) %>
+              <%= hidden_field_tag(:id, tool.id) %>
+              <%= hidden_field_tag(:user_id, @current_user) %> 
+              <%= submit_tag("Check out") %>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
-    </td>
-  </tr>
+    <% end %>
+  </table>
+
+  <h4>Tools you've checked out:</h4>
+  <table id="users-tools">
+
+  <% @users_checkedout_tools.each do |tool| %>
+    <tr>
+      <td><%= tool.kind %></td>
+      <td>
+        <%= form_tag(checkin_path, method: "post") do %>
+          <%= hidden_field_tag(:id, tool.id) %>
+          <%= submit_tag("Check in") %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
 <% end %>
-</table>
