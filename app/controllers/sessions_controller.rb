@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def user_email
-    @current_user.update(email: params[:email])
+    @current_user.update(email: params[:email][:email])
   
       redirect_to profile_path, notice: "Thank you for submitting your email address."
   end
