@@ -1,4 +1,5 @@
-class Event
+class Event < ActiveRecord::Base
+  validates_presence_of :title
   def self.new_event(params)
     calendar.create_event do |e|
       puts params[:start_time]

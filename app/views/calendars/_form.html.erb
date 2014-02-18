@@ -1,0 +1,33 @@
+<div class='ui error form segment'>
+  <% if @event.errors.any? %>
+    <div class='ui error message'>
+      <div class='header'>Oops!</div>
+      <% @event.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form_tag(url: create_event_path, id: 'new_event') do %>
+    <div class="field">
+      <%= label_tag 'Add an event!' %>
+    </div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %><br>
+    <%= label_tag :start_time %>  
+    <div class='datetime'>
+      <%= datetime_local_field_tag :start_time, value: nil, options: {ampm: true, :order => [:day, :month, :year], default: Time.now, class: 'ui input'}%>
+    </div><br>
+    <%= label_tag :end_time %>
+    <div class='datetime'>
+      <%= datetime_local_field_tag :end_time, ampm: true, :order => [:day, :month, :year], default: Time.now %>
+    </div><br>
+    <%= label_tag 'Description' %>
+    <%= text_area_tag :content %>
+    <%= label_tag 'Location' %>
+    <%= text_field_tag :where %>
+    <br>
+
+    <div class="actions"><div class='new_comment'><%= submit_tag %></div></div>
+  <% end %> 
+</div>

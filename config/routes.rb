@@ -34,6 +34,9 @@ Peapatch::Application.routes.draw do
   get    'comments/:id'        => 'comments#show',    as: :comment
   delete 'destroy/comment/:id' => 'comments#destroy', as: :destroy_comment
 
+  # Calendar
+  get  'calendar' => 'calendars#index',  as: :calendar
+  post 'calendar' => 'calendars#create', as: :create_event
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
