@@ -9,10 +9,12 @@ Peapatch::Application.routes.draw do
   root 'welcome#index'
 
   # Twitter auth
-  get 'signin',                   to: 'sessions#signin', as: :signin
+  get 'signin',                   to: 'sessions#signin',     as: :signin
   get "auth/:provider/callback",  to: "sessions#create"
   post "auth/:provider/callback", to: "sessions#create"
-  get 'signout',                  to: 'sessions#signout', as: :signout
+  get 'signout',                  to: 'sessions#signout',    as: :signout
+  post 'profile/update',          to: 'sessions#user_email', as: :update_user_email
+  get 'profile',                  to: 'sessions#index',      as: :profile
 
   # Tools
   get 'tools',  to: 'tools#index', as: :tools

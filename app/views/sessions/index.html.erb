@@ -1,0 +1,8 @@
+<h1> Hi <%= @current_user.username %>, </h1>
+
+<% if current_user.email.nil? %>
+  <%= render "email_form" %>
+<% end %> 
+
+
+<% notice %>
