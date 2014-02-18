@@ -23,6 +23,7 @@ gem 'semantic-ui-rails'
 gem 'resque'
 gem 'nokogiri'
 gem 'open-uri-s3'
+gem 'httparty'
 
 
 group :development, :test do
