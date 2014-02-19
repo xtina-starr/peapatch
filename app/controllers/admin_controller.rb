@@ -10,6 +10,7 @@ class AdminController < ApplicationController
 
     @user.update(admin: true)
     redirect_to admin_path, notice: "You have successfully added #{@user.username} as an Admin User."
+
   end
 
   def revoke_admin
@@ -21,9 +22,7 @@ class AdminController < ApplicationController
 
   private
   def check_admin
-    if current_user.admin?
-      render :index
-    else
+    unless current_user.admin?
       redirect_to root_path, notice: "You do not have Admin access!"
     end
   end

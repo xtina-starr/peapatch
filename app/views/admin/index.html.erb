@@ -1,5 +1,3 @@
-<%= notice %><br>
-
 <table id="admin">
   
   <% User.all.each do |user| %>
@@ -7,12 +5,12 @@
         <td><%= user.username %></td>
         <td>
           <% if user.admin? %>
-            <%= form_tag(url: revoke_admin_path, method: "post") do %>
+            <%= form_tag(revoke_admin_path, method: "post") do %>
               <%= hidden_field_tag(:id, user.id) %>
               <%= submit_tag("Revoke Admin") %>
             <% end %>
           <% else %>
-            <%= form_tag(url: admin_access_path, method: "post") do %>
+            <%= form_tag(admin_access_path, method: "post") do %>
               <%= hidden_field_tag(:id, user.id) %>
               <%= submit_tag("Add Admin") %>
             <% end %>
