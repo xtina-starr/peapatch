@@ -8,16 +8,49 @@
 </head>
 <body>
   <div id='header' class='ui segment'>
-    <div class='ui huge center aligned header'>
-      <%= link_to('Post', posts_path) %>
-      <%= link_to(image_tag('peainpod.jpg', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/') %>
-      <%= link_to('Calendar', calendar_path) %>
-    </div>
-    <div class='ui center aligned header'>
+    <%= link_to(image_tag('peainpod.jpg', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/') %>
+
+    <div class="ui green inverted menu">
+      <%= link_to posts_path do %>
+        <div class='item'>
+          <i class="book icon"></i>News
+        </div>
+      <% end %>
+
+      <!-- sign out button (only visible when you are signed in) -->
       <% if @current_user %>
-        <%= link_to "Sign Out", signout_path %>
+
+        <%= link_to calendar_path do %>
+          <div class='item'>
+            <i class="calendar icon"></i>Calendar
+          </div>
+        <% end %>
+
+        <%= link_to tools_path do %>
+          <div class='item'>
+            <i class='wrench icon'></i>Tool Library
+          </div>
+        <% end %>
+
+        <%= link_to profile_path do %>
+          <div class='item'>
+            <i class='user icon'></i>Your Profile
+          </div>
+        <% end %>
+
+        <%= link_to signout_path do %>
+          <div class='item'>
+            <i class="sign out icon"></i>Sign Out 
+          </div>
+        <% end %>
+
+      <!-- sign in button (only visible when you are signed out) -->
       <% else %>
-        <%= link_to "Sign in with Twitter", signin_path %><br>
+        <%= link_to signin_path do %>
+          <div class='item'>
+            <i class="twitter icon"></i>Sign In for More Great Features
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
