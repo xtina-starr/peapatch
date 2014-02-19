@@ -13,9 +13,20 @@
       <%= link_to(image_tag('peainpod.jpg', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/') %>
       <%= link_to('Calendar', calendar_path) %>
     </div>
+    <div class='ui center aligned header'>
+      <% if @current_user %>
+        <%= link_to "Sign Out", signout_path %>
+      <% else %>
+        <%= link_to "Sign in with Twitter", signin_path %><br>
+      <% end %>
+    </div>
   </div>
 
-<%= yield %>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
