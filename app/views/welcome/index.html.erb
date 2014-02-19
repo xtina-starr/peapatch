@@ -3,11 +3,11 @@
 <%= raw data.xpath("//item//description")[0] %>
 <br>
 
-<div class='recent_content'>
-  <div class='top-blogs'>
+<div class='two column stackable ui grid'>
+  <div class='column' id='top-blogs'>
     <h3>Recent News</h3>
     <% @five_posts.each do |post| %>
-      <div class='post'>
+      <div class='ui segment'>
         <h4><%= post.title %></h4>
         <%= post.datetime %><br>
         <%= post.content %><br>
@@ -16,11 +16,13 @@
     <% end %>
   </div>
 
-  <div class='right-sidebar'>
+  <div class='column' id='right-sidebar'>
     <h3>Upcoming Events</h3>
     <% @events.each do |event| %>
-      <% start_time = event.start_time.to_datetime %>
-      "<%= event.title %>" at <%= start_time.strftime("%r") %> on <%= start_time.strftime("%B %d, %Y") %> <br>
+      <div class='ui segment'>
+        <% start_time = event.start_time.to_datetime %>
+        "<%= event.title %>" at <%= start_time.strftime("%r") %> on <%= start_time.strftime("%B %d, %Y") %> <br>
+      </div>
     <% end %>
   </div>
 </div>

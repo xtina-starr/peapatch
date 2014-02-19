@@ -5,54 +5,123 @@
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div id='header' class='ui segment'>
+  <div id='header' class='ui inverted menu grid'>
     <%= link_to(image_tag('peainpod.jpg', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/') %>
 
-    <div class="ui green inverted menu">
-      <%= link_to posts_path do %>
-        <div class='item'>
-          <i class="book icon"></i>News
-        </div>
-      <% end %>
+    <!-- This is the computer-style menu -->
 
-      <!-- sign out button (only visible when you are signed in) -->
-      <% if @current_user %>
-
-        <%= link_to calendar_path do %>
-          <div class='item'>
-            <i class="calendar icon"></i>Calendar
-          </div>
+    <!-- This takes you to the news/blog posts, with an icon -->
+    <div class='computer only row'>
+      <ul class="ui green inverted menu">
+        <%= link_to posts_path do %>
+          <li class='item'>
+            <i class="book icon"></i>News
+          </li>
         <% end %>
 
-        <%= link_to tools_path do %>
-          <div class='item'>
-            <i class='wrench icon'></i>Tool Library
-          </div>
-        <% end %>
-        
-        <%= link_to profile_path do %>
-          <div class='item'>
-            <i class='user icon'></i>Your Profile
-          </div>
-        <% end %>
+        <!-- these all only show if there is a current user -->
+        <% if @current_user %>
 
-        <%= link_to signout_path do %>
-          <div class='item'>
-            <i class="sign out icon"></i>Sign Out 
-          </div>
-        <% end %>
+          <!-- this is a link to the calendar, with an icon -->
+          <%= link_to calendar_path do %>
+            <li class='item'>
+              <i class="calendar icon"></i>Calendar
+            </li>
+          <% end %>
 
-      <!-- sign in button (only visible when you are signed out) -->
-      <% else %>
-        <%= link_to signin_path do %>
-          <div class='item'>
-            <i class="twitter icon"></i>Sign In for More Great Features
-          </div>
+          <!-- This is a link to the tool library, with an icon -->
+          <%= link_to tools_path do %>
+            <li class='item'>
+              <i class='wrench icon'></i>Tool Library
+            </li>
+          <% end %>
+          
+          <!-- Takes you to the user profile (primarily used to complete sign-in) -->
+          <%= link_to profile_path do %>
+            <li class='item'>
+              <i class='user icon'></i>Your Profile
+            </li>
+          <% end %>
+
+          <!-- To sign out/destroy session -->
+          <%= link_to signout_path do %>
+            <li class='item'>
+              <i class="sign out icon"></i>Sign Out 
+            </li>
+          <% end %>
+
+        <!-- sign in button (only visible when you are signed out) -->
+        <% else %>
+          <%= link_to signin_path do %>
+            <li class='item'>
+              <i class="twitter icon"></i>Sign In for More Great Features
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
+      </ul>
     </div>
+    <!-- This marks the end of the computer-only section -->
+
+    <!-- mobile-only header -->
+    <div class='mobile only row'>
+      <ul class="ui green inverted menu">
+        <li class='item' id='menu-expander'>
+          <i class="white list layout icon"></i>
+        </li>
+        <ul class='dropdown'>
+          <%= link_to posts_path do %>
+          <li class='item'>
+            <i class="book icon"></i>News
+          </li>
+        <% end %>
+
+        <!-- these all only show if there is a current user -->
+        <% if @current_user %>
+
+          <!-- this is a link to the calendar, with an icon -->
+          <%= link_to calendar_path do %>
+            <li class='item'>
+              <i class="calendar icon"></i>Calendar
+            </li>
+          <% end %>
+
+          <!-- This is a link to the tool library, with an icon -->
+          <%= link_to tools_path do %>
+            <li class='item'>
+              <i class='wrench icon'></i>Tool Library
+            </li>
+          <% end %>
+          
+          <!-- Takes you to the user profile (primarily used to complete sign-in) -->
+          <%= link_to profile_path do %>
+            <li class='item'>
+              <i class='user icon'></i>Your Profile
+            </li>
+          <% end %>
+
+          <!-- To sign out/destroy session -->
+          <%= link_to signout_path do %>
+            <li class='item'>
+              <i class="sign out icon"></i>Sign Out 
+            </li>
+          <% end %>
+
+        <!-- sign in button (only visible when you are signed out) -->
+        <% else %>
+          <%= link_to signin_path do %>
+            <li class='item'>
+              <i class="twitter icon"></i>Sign In
+            </li>
+          <% end %>
+        <% end %>
+        </ul>
+      </ul>
+    </div>
+    <!-- The end of the mobile-only section -->
+
   </div>
 
 
