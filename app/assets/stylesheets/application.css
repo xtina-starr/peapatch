@@ -25,6 +25,11 @@ ul.dropdown.visible{
   display: block;
 }
 
+.header-image{
+  float: center;
+  width: 25%;
+}
+
  @media all(max-width: 500px){
   .right-sidebar{
     width: 100%;
@@ -39,11 +44,11 @@ ul.dropdown.visible{
  @media all(min-width: 500px){
   .right-sidebar{
     float: right;
-    width: 35%;
+    width: 30%;
     text-align: center;
   }
   .top-blogs{
     float: left;
-    width: 60%;
+    width: 65%;
   }
 }

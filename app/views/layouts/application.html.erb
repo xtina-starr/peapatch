@@ -9,12 +9,12 @@
 </head>
 <body>
   <div id='header' class='ui inverted menu grid'>
-    <%= link_to(image_tag('peainpod.jpg', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/') %>
+    <%= link_to(image_tag('peainpod.png', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/', class: 'header-image') %>
 
     <!-- This is the computer-style menu -->
 
     <!-- This takes you to the news/blog posts, with an icon -->
-    <div class='computer only row'>
+    <div class='computer tablet only row'>
       <ul class="ui green inverted menu">
         <%= link_to posts_path do %>
           <li class='item'>
@@ -48,7 +48,7 @@
 
           <!-- To sign out/destroy session -->
           <%= link_to signout_path do %>
-            <li class='item'>
+            <li class='right menu item'>
               <i class="sign out icon"></i>Sign Out 
             </li>
           <% end %>
@@ -56,8 +56,8 @@
         <!-- sign in button (only visible when you are signed out) -->
         <% else %>
           <%= link_to signin_path do %>
-            <li class='item'>
-              <i class="twitter icon"></i>Sign In for More Great Features
+            <li class='right menu item'>
+              <i class="twitter icon"></i>Sign In
             </li>
           <% end %>
         <% end %>
