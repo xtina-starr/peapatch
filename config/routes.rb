@@ -9,16 +9,11 @@ Peapatch::Application.routes.draw do
   root 'welcome#index'
 
   # Twitter auth
-  get 'signin',                   to: 'sessions#signin',     as: :signin
-  get "auth/:provider/callback",  to: "sessions#create"
+  get  'signin',                  to: 'sessions#signin',     as: :signin
+  get  "auth/:provider/callback", to: "sessions#create"
   post "auth/:provider/callback", to: "sessions#create"
   get 'signout',                  to: 'sessions#signout',    as: :signout
   get 'profile',                  to: 'sessions#index',      as: :profile
-
-  # Tools
-  get 'tools',           to: 'tools#index', as: :tools
-  post 'tools/checkout', to: 'tools#checkout_tool', as: :checkout 
-  post 'tools/checkin',  to: 'tools#checkin_tool', as: :checkin
 
   # User
   patch 'profile/update', to: 'users#user_email', as: :update_user_email
@@ -27,6 +22,11 @@ Peapatch::Application.routes.draw do
   get 'admin',         to: 'admin#index',        as: :admin
   post 'admin/access', to: 'admin#admin_access', as: :admin_access
   post 'admin',        to: 'admin#revoke_admin', as: :revoke_admin
+
+  # Tools
+  get 'tools',           to: 'tools#index',         as: :tools
+  post 'tools/checkout', to: 'tools#checkout_tool', as: :checkout 
+  post 'tools/checkin',  to: 'tools#checkin_tool',  as: :checkin
 
   # Posts
   get  'posts/new'    => 'posts#new',     as: :new_post
@@ -41,6 +41,9 @@ Peapatch::Application.routes.draw do
   get    'comments/:id'        => 'comments#show',    as: :comment
   delete 'destroy/comment/:id' => 'comments#destroy', as: :destroy_comment
 
+  # Calendar
+  get  'calendar' => 'calendars#index',  as: :calendar
+  post 'calendar' => 'calendars#create', as: :create_event
 
 
 
