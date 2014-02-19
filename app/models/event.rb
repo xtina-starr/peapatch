@@ -12,6 +12,11 @@ class Event < ActiveRecord::Base
     end
   end
 
+  private
+  def self.upcoming
+    calendar.find_future_events(options={order_by: 'starttime'}).reverse[0..4]
+  end
+
   def self.valid(params)
     !params[:title].nil? &&  
     Event.get_date(params[:start_time]) > Time.now && #start time > current time
@@ -26,7 +31,6 @@ class Event < ActiveRecord::Base
       time["time(5i)"].to_i)
   end
 
-  private
   def self.calendar
     @calendar ||= Google::Calendar.new(
       username: ENV['EMAIL_ADDRESS'], 

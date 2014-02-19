@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+.right-sidebar{
+  float: right;
+  width: 35%;
+  text-align: center;
+}
+.top-blogs{
+  float: left;
+  width: 60%;
+}

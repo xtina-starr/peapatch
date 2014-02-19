@@ -1,5 +1,26 @@
 <% link = "http://weather.yahooapis.com/forecastrss?w=2490383&u=f" %>
 <% data = Nokogiri::XML(open(link))%>
 <%= raw data.xpath("//item//description")[0] %>
+<br>
 
-Eventually, this will have the 5 most recent blog posts and a sweet event sidebar
+<div class='recent_content'>
+  <div class='top-blogs'>
+    <h3>Recent News</h3>
+    <% @five_posts.each do |post| %>
+      <div class='post'>
+        <h4><%= post.title %></h4>
+        <%= post.datetime %><br>
+        <%= post.content %><br>
+        <%= link_to "#{post.comments.length} Comments", post_path(post.id) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='right-sidebar'>
+    <h3>Upcoming Events</h3>
+    <% @events.each do |event| %>
+      <% start_time = event.start_time.to_datetime %>
+      "<%= event.title %>" at <%= start_time.strftime("%r") %> on <%= start_time.strftime("%B %d, %Y") %> <br>
+    <% end %>
+  </div>
+</div>
