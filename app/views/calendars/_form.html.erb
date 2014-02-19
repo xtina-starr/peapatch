@@ -14,14 +14,10 @@
     </div>
     <%= label_tag :title %>
     <%= text_field_tag :title %><br>
-    <%= label_tag :start_time %>  
-    <div class='datetime'>
-      <%= datetime_local_field_tag :start_time, value: nil, options: {ampm: true, :order => [:day, :month, :year], default: Time.now, class: 'ui input'}%>
-    </div><br>
+    <%= label_tag :start_time %>   
+    <%= datetime_select :start_time, :time, ampm: true, :order => [:day, :month, :year], default: Time.now %><br>
     <%= label_tag :end_time %>
-    <div class='datetime'>
-      <%= datetime_local_field_tag :end_time, ampm: true, :order => [:day, :month, :year], default: Time.now %>
-    </div><br>
+    <%= datetime_select :end_time, :time, ampm: true, :order => [:day, :month, :year], default: Time.now %><br>
     <%= label_tag 'Description' %>
     <%= text_area_tag :content %>
     <%= label_tag 'Location' %>

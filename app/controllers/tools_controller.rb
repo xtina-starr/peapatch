@@ -5,7 +5,7 @@ class ToolsController < ApplicationController
     if current_user
       @users_checkedout_tools = Tool.user_tools(@current_user)
     else
-      redirect_to "/", notice: "You must be longed in to do that."
+      redirect_to "/", notice: "You must be logged in to do that."
     end
   end
 
