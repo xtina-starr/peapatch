@@ -25,9 +25,17 @@ ul.dropdown.visible{
   display: block;
 }
 
-.header-image{
-  float: center;
-  width: 25%;
+#header-pic{
+  max-width: 50%;
+  height: auto;
+}
+
+div#logo{
+  text-align: center;
+}
+
+div.post-button{
+  text-align: center;
 }
 
  @media all(max-width: 500px){
