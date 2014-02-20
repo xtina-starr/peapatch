@@ -35,6 +35,7 @@ end
 
 group :development do
   gem 'brakeman', :require => false
+  gem "flog", "~> 4.2.0"
 end
 
 # Use ActiveModel has_secure_password

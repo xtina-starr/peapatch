@@ -5,17 +5,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    unless @current_user.nil?
-      if @current_user.admin
-        @post = @current_user.posts.create(post_params)
-        if @post.save
-          Resque.enqueue(EmailJob, @post.id)
-          redirect_to post_path(@post.id), notice: "Your post was created!"
-        else
-          render new_post_path
-        end
+    if @current_user.try && @current_user.admin
+      @post = @current_user.posts.create(post_params)
+      if @post.save
+        Resque.enqueue(EmailJob, @post.id)
+        redirect_to post_path(@post.id), notice: "Your post was created!"
       else
-        redirect_to root_path, notice: "Only a logged-in administrator can write posts"
+        render new_post_path
       end
     else
       redirect_to root_path, notice: "Only a logged-in administrator can write posts"
