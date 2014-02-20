@@ -15,6 +15,10 @@
 //= require_tree .
 
 $(document).ready(function (){
+  $('#menu-expander').click(function(){
+    $('.dropdown').toggleClass('visible');
+  });
+
   $('#new_comment').submit(function (){
     $.post($(this).attr('action'), $(this).serialize(), null, "script");
       return false;

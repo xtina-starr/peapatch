@@ -11,12 +11,44 @@
  *= require_self
  *= require_tree .
  */
-.right-sidebar{
+
+
+#menu-expander{
   float: right;
-  width: 35%;
-  text-align: center;
 }
-.top-blogs{
-  float: left;
-  width: 60%;
+
+ul.dropdown{
+  display: none;
+}
+
+ul.dropdown.visible{
+  display: block;
+}
+
+.header-image{
+  float: center;
+  width: 25%;
+}
+
+ @media all(max-width: 500px){
+  .right-sidebar{
+    width: 100%;
+    margin-left: 0;
+  }
+  .top-blogs{
+    width: 100%;
+    margin-left: 0;
+  }
+ }
+
+ @media all(min-width: 500px){
+  .right-sidebar{
+    float: right;
+    width: 30%;
+    text-align: center;
+  }
+  .top-blogs{
+    float: left;
+    width: 65%;
+  }
 }
