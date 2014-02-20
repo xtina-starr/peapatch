@@ -1,0 +1,5 @@
+Greetings, PeaPatcher!<br>
+There is news from the peapatch!<br>
+
+<% start_time = event.start_time.to_datetime %>
+Don't forget to attend the upcoming event, <%= @event.title %>! It's coming up at <%= start_time.strftime("%r") %> on <%= start_time.strftime("%B %d, %Y") %>. We'll <em>seed</em> you there!

@@ -17,3 +17,7 @@ This application was made by Christina and Ellen.
 + Open a terminal window and type `redis-server`
 + Open another terminal window and type `rake resque:work QUEUE='*'`
 + Create a new blog post!
+
+## To Get Scheduled Updates, Including Alerts of Upcoming Events
++ Open a terminal window and type `redis-server`
++ Open another terminal window and type `rake resque:scheduler

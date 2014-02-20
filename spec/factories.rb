@@ -29,4 +29,12 @@ FactoryGirl.define do
     content 'Some sweet valid comment content'
     datetime Time.now
   end
+
+  factory :event do 
+    title "title"
+    start_time Time.now + 60 * 60
+    end_time Time.now + 120 * 60
+    content "content"
+    where "where"
+  end
 end
