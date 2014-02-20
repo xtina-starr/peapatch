@@ -1,3 +1,4 @@
+# Create Tools
 class CreateTools < ActiveRecord::Migration
   def change
     create_table :tools do |t|

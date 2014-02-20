@@ -19,5 +19,5 @@ describe SessionsController do
   #     expect(current_user.reload.email).to_not be_nil
   #   end
   # end
-  
+
 end
