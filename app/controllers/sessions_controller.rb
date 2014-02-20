@@ -19,11 +19,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def user_email
-    @current_user.update(email: params[:email])
+  # def user_email
+  #   @current_user.update(email: params[:email])
   
-    redirect_to profile_path, notice: "Thank you for submitting your email address."
-  end
+  #   redirect_to profile_path, notice: "Thank you for submitting your email address."
+  # end
 
   def signin
     redirect_to "/auth/twitter"

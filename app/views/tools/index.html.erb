@@ -38,5 +38,8 @@
     </tr>
   <% end %>
   </table>
-
+<% else %>
+  <% @all_the_tools.each do |tool| %>
+    <%= tool.kind %><br>
+  <% end %>
 <% end %>

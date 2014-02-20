@@ -1,0 +1,22 @@
+<table id="admin">
+  
+  <% User.all.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td>
+          <% if user.admin? %>
+            <%= form_tag(revoke_admin_path, method: "post") do %>
+              <%= hidden_field_tag(:id, user.id) %>
+              <%= submit_tag("Revoke Admin") %>
+            <% end %>
+          <% else %>
+            <%= form_tag(admin_access_path, method: "post") do %>
+              <%= hidden_field_tag(:id, user.id) %>
+              <%= submit_tag("Add Admin") %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+
+</table>

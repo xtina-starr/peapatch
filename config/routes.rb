@@ -12,9 +12,16 @@ Peapatch::Application.routes.draw do
   get  'signin',                  to: 'sessions#signin',     as: :signin
   get  "auth/:provider/callback", to: "sessions#create"
   post "auth/:provider/callback", to: "sessions#create"
-  get  'signout',                 to: 'sessions#signout',    as: :signout
-  post 'profile/update',          to: 'sessions#user_email', as: :update_user_email
-  get  'profile',                 to: 'sessions#index',      as: :profile
+  get 'signout',                  to: 'sessions#signout',    as: :signout
+  get 'profile',                  to: 'sessions#index',      as: :profile
+
+  # User
+  patch 'profile/update', to: 'users#user_email', as: :update_user_email
+
+  # Admin
+  get 'admin',         to: 'admin#index',        as: :admin
+  post 'admin/access', to: 'admin#admin_access', as: :admin_access
+  post 'admin',        to: 'admin#revoke_admin', as: :revoke_admin
 
   # Tools
   get 'tools',           to: 'tools#index',         as: :tools
@@ -37,6 +44,8 @@ Peapatch::Application.routes.draw do
   # Calendar
   get  'calendar' => 'calendars#index',  as: :calendar
   post 'calendar' => 'calendars#create', as: :create_event
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
