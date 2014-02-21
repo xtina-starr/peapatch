@@ -24,6 +24,7 @@ gem 'resque'
 gem 'resque-scheduler'
 gem 'nokogiri'
 gem 'open-uri-s3'
+gem 'resque-heroku-autoscaler'
 
 
 group :development, :test do

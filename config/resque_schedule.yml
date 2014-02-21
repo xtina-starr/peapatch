@@ -1,5 +1,0 @@
-event_reminder_email:
-  every:
-  class: EventReminderEmailJob(1)
-  args:
-  description: Sends an email to the users
