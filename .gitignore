@@ -18,7 +18,6 @@
 # Ignore application configuration
 /config/application.yml
 
-/config/initializers/secret_token.rb
 /coverage
 
 /dump.rdb #appears to have to do with running the redis servers and causes frequent merge conflicts
