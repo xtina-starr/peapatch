@@ -9,7 +9,8 @@ class PostsController < ApplicationController
       if @current_user.admin
         @post = @current_user.posts.create(post_params)
         if @post.save
-          Resque.enqueue(EmailJob, @post.id)
+          # Resque.enqueue(EmailJob, @post.id)
+          PostMailer.upcoming_event(@post.id).deliver
           redirect_to posts_path, notice: "Your post was created!"
         else
           render new_post_path
