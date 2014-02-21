@@ -1,7 +1,5 @@
-require 'resque_heroku_autoscaler'
-
 class EmailJob
-  extend Resque::Plugins::HerokuAutoscaler
+  extend HerokuResqueAutoScale if Rails.env.production?
 
   @queue = :email
 

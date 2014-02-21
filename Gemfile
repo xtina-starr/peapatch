@@ -20,11 +20,10 @@ gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
 gem 'autoprefixer-rails'
 gem 'semantic-ui-rails'
-gem 'resque'
-gem 'resque-scheduler'
+gem 'resque', '~> 1.23.0'
 gem 'nokogiri'
 gem 'open-uri-s3'
-gem 'resque-heroku-autoscaler'
+gem 'heroku_resque_autoscaler'
 
 
 group :development, :test do
