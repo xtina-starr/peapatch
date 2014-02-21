@@ -20,4 +20,4 @@ This application was made by Christina and Ellen.
 
 ## To Get Scheduled Updates, Including Alerts of Upcoming Events
 + Open a terminal window and type `redis-server`
-+ Open another terminal window and type `rake resque:scheduler
++ Open another terminal window and type `rake resque:scheduler`
