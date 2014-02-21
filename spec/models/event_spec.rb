@@ -28,4 +28,22 @@ describe Event do
       expect(event.errors[:end_time]).to include "must end after it begins"
     end
   end
+
+  describe 'class methods' do 
+    describe 'get_date' do 
+      it 'returns a date object' do
+        expect(Event.get_date({"time(1i)" => '01',
+                               "time(2i)" => '01',
+                               "time(3i)" => '01',
+                               "time(4i)" => '01',
+                               "time(5i)" => '01'}).class).to eq(Time)
+      end
+    end
+
+    describe 'upcoming' do 
+      it 'returns an array' do 
+        expect(Event.upcoming.class).to eq(Array)
+      end
+    end
+  end
 end
