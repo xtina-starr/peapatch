@@ -20,6 +20,8 @@
   <% end %>
 </div>
 
-<% unless @current_user.nil? %>
-  <%= render '/comments/form' %>
-<% end %>
+
+  <% unless @current_user.nil? %>
+    <%= render '/comments/form' %>
+  <% end %>
+  

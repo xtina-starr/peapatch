@@ -4,6 +4,7 @@
   <% end %>
 <% end %>
 
+<div class="ui form segment" >
 <%= form_for(@comment, url: create_comment_path, id: 'new_comment') do |f| %>
   <div class="field">
     <%= f.label 'Add your thoughts' %>
@@ -12,5 +13,7 @@
   <%= f.hidden_field :post_id, value: params[:id].to_i %>
   <%= f.hidden_field :datetime, value:  DateTime.now %>
   <%= hidden_field_tag :id, params[:id] %>
-  <div class="actions"><div class='new_comment'><%= f.submit %></div></div>
+  <div class="actions"><div class='new_comment'><br>
+    <%= f.submit class: 'ui green submit button' %></div></div>
 <% end %> 
+</div

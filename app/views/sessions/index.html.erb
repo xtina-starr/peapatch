@@ -1,8 +1,12 @@
-<h1> Hi <%= @current_user.username %>, </h1>
+<div id="profile">
+  <h1> Hi <%= @current_user.username %>, </h1>
 
-<% if current_user.email.nil? %>
-  <%= render "email_form" %>
-<% end %> 
+  <% if current_user.email.nil? %>
+    <%= render "email_form" %>
+  <% end %> 
 
-
-<% notice %>
+  
+  <h2>Tools:</h2>
+  <h3>You have <%= @users_checkedout_tools.count %> tools checked out.</h3>
+  <% notice %>
+</div>

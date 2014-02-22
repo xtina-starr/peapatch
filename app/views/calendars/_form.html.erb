@@ -1,3 +1,4 @@
+<div class="form-container">
 <div class='ui error form segment'>
   <% if @event.errors.any? %>
     <div class='ui error message'>
@@ -8,22 +9,34 @@
     </div>
   <% end %>
 
-  <%= form_tag(url: create_event_path, id: 'new_event') do %>
-    <div class="field">
-      <%= label_tag 'Add an event!' %>
-    </div>
-    <%= label_tag :title %>
-    <%= text_field_tag :title %><br>
-    <%= label_tag :start_time %>   
-    <%= datetime_select :start_time, :time, ampm: true, :order => [:day, :month, :year], default: Time.now %><br>
-    <%= label_tag :end_time %>
-    <%= datetime_select :end_time, :time, ampm: true, :order => [:day, :month, :year], default: Time.now %><br>
-    <%= label_tag 'Description' %>
-    <%= text_area_tag :content %>
-    <%= label_tag 'Location' %>
-    <%= text_field_tag :where %>
-    <br>
+  <div class="form">
+    <%= form_tag(url: create_event_path, id: 'new_event') do %>
+      <div class="label" class="field">
+        <%= label_tag 'Add an event to the calendar' %>
+      </div>
+      <div class="field">
+        <%= label_tag :title %>
+        <%= text_field_tag :title %>
+      </div>
+      <div class="field">
+        <%= label_tag :start_time %>   
+        <%= datetime_select :start_time, :time, ampm: true, :order => [:day, :month, :year], default: Time.now %>
+      </div>
+      <div class="field">
+        <%= label_tag :end_time %>
+        <%= datetime_select :end_time, :time, ampm: true, :order => [:day, :month, :year], default: Time.now %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Description' %>
+        <%= text_area_tag :content %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Location' %>
+        <%= text_field_tag :where %>
+      </div>
 
-    <div class="actions"><div class='new_comment'><%= submit_tag %></div></div>
-  <% end %> 
+      <div class="actions"><div class='new_comment' class="field"><%= submit_tag "Submit", class: 'ui green submit button' %></div></div>
+    <% end %> 
+  </div>
+</div>
 </div>

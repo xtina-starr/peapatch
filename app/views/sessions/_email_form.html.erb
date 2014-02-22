@@ -1,7 +1,13 @@
 <h3>You haven't submitted your email address yet.</h3>
 
-<%= form_tag(update_user_email_path, method: "patch") do %>
-  <%= label_tag(:email) %>
-  <%= email_field_tag(:email) %> 
-  <%= submit_tag("Submit") %>
-<% end %>
+<div class="email-form">
+  <div class="ui form segment">
+    <%= form_tag(update_user_email_path, method: "patch") do %>
+      <%= label_tag(:email) %>
+      <%= email_field_tag(:email) %>
+      <div class="space">
+        <%= submit_tag("Submit", class: "ui green submit button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
