@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -31,6 +31,11 @@ group :development, :test do
   gem "terminal-notifier-guard"
   gem "factory_girl_rails"
   gem 'simplecov', :require => false
+end
+
+group :development do
+  gem 'brakeman', :require => false
+  gem "flog", "~> 4.2.0"
 end
 
 # Use ActiveModel has_secure_password
