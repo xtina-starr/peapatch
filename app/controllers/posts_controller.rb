@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         @post = @current_user.posts.create(post_params)
         if @post.save
           Resque.enqueue(EmailJob, @post.id)
-          redirect_to post_path(@post.id), notice: "Your post was created!"
+          redirect_to posts_path, notice: "Your post was created!"
         else
           render new_post_path
         end

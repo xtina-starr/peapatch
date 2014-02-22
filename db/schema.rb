@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 
-ActiveRecord::Schema.define(version: 20140212230600) do
+ActiveRecord::Schema.define(version: 20140220183801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
@@ -13,13 +13,15 @@ ActiveRecord::Schema.define(version: 20140212230600) do
     t.text     'content'
   end
 
-  create_table 'events', force: true do |t|
-    t.string   'name'
-    t.datetime 'start_at'
-    t.datetime 'end_at'
-    t.text     'description'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text     "content"
+    t.string   "where"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table 'posts', force: true do |t|
