@@ -4,16 +4,21 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @current_user.try(:comments).create(comment_params)
-    if @comment.save
-      post = Post.find(params[:comment][:post_id].to_i)
-      post.comments << @comment
-      respond_to do |format|
-        format.html{ redirect_to :back }
-        format.js
+    @comment = Comment.new
+    unless @current_user.nil?
+      @comment = @current_user.comments.create(comment_params)
+      if @comment.save
+        post = Post.find(params[:comment][:post_id].to_i)
+        post.comments << @comment
+        respond_to do |format|
+          format.html{ redirect_to :back }
+          format.js
+        end
+      else
+        redirect_to :back
       end
     else
-      redirect_to :back
+      redirect_to :back, notice: "You must be logged in to do that"
     end
   end
 
