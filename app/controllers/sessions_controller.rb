@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def index
-    
+    @users_checkedout_tools = Tool.user_tools(@current_user)
   end
 
   def create

@@ -1,3 +1,4 @@
+# Create Events
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
@@ -5,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :start_at
       t.datetime :end_at
       t.text :description
-      
+    
       t.timestamps
     end
   end

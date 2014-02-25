@@ -26,11 +26,11 @@ class Event < ActiveRecord::Base
   end
 
   def self.get_date(time)
-    Time.new(time["time(1i)"].to_i, 
-      time["time(2i)"].to_i,
-      time["time(3i)"].to_i,
-      time["time(4i)"].to_i,
-      time["time(5i)"].to_i)
+    Time.new(time["time(1i)"].to_i,
+      time['time(2i)'].to_i,
+      time['time(3i)'].to_i,
+      time['time(4i)'].to_i,
+      time['time(5i)'].to_i)
   end
 
   private
@@ -40,9 +40,9 @@ class Event < ActiveRecord::Base
 
   def self.calendar
     @calendar ||= Google::Calendar.new(
-      username: ENV['EMAIL_ADDRESS'], 
-      password: ENV['EMAIL_PASSWORD'], 
-      app_name: 'adapeapatch', 
+      username: ENV['EMAIL_ADDRESS'],
+      password: ENV['EMAIL_PASSWORD'],
+      app_name: 'adapeapatch',
       calendar: 'Community Events')
   end
 end

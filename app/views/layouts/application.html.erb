@@ -4,14 +4,17 @@
   <title>Peapatch</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <lin
 </head>
 <body>
-  <div id='header' class='ui inverted menu grid'>
-    <div id="logo">
+  <div id="logo">
       <%= link_to(image_tag('peainpod.png', alt: 'adorable peas in a pod', title: 'Ada Peapatch'), '/', class: 'circular ui image', id: 'header-pic') %>
-    </div>
+      <h2 id="logo2">Pea Patch</h2>
+  </div>
+    
+  <div id='header' class='ui menu grid'>
 
     <!-- This is the computer-style menu -->
 
@@ -130,7 +133,9 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
   <% end %>
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

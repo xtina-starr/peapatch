@@ -1,28 +1,35 @@
-<% link = "http://weather.yahooapis.com/forecastrss?w=2490383&u=f" %>
-<% data = Nokogiri::XML(open(link))%>
-<%= raw data.xpath("//item//description")[0] %>
+
 <br>
 
-<div class='two column stackable ui grid'>
-  <div class='column' id='top-blogs'>
-    <h3>Recent News</h3>
-    <% @five_posts.each do |post| %>
-      <div class='ui segment'>
-        <h4><%= post.title %></h4>
-        <%= post.datetime %><br>
-        <%= post.content %><br>
-        <%= link_to "#{post.comments.length} Comments", post_path(post.id) %>
-      </div>
-    <% end %>
-  </div>
+<div id="home" class='font'>
+  <div id="home-container" class='two column stackable ui grid'>
+    <div class='column' id='top-blogs'>
+      <h3>Recent News</h3>
+      <% @five_posts.each do |post| %>
+        <div  class='ui segment'>
+          <h4><%= post.title %></h4>
+          <%= post.datetime %><br>
+          <%= post.content %><br>
+          <%= link_to "#{post.comments.length} Comments", post_path(post.id) %>
+        </div>
+      <% end %>
 
-  <div class='column' id='right-sidebar'>
-    <h3>Upcoming Events</h3>
-    <% @events.each do |event| %>
-      <div class='ui segment'>
-        <% start_time = event.start_time.to_datetime %>
-        "<%= event.title %>" at <%= start_time.strftime("%r") %> on <%= start_time.strftime("%B %d, %Y") %> <br>
+      <h3>Weather</h3>
+      <div class="ui segment">
+        <% link = "http://weather.yahooapis.com/forecastrss?w=2490383&u=f" %>
+        <% data = Nokogiri::XML(open(link))%>
+        <%= raw data.xpath("//item//description")[0] %>
       </div>
-    <% end %>
+    </div>
+
+    <div class='column' id='right-sidebar'>
+      <h3>Upcoming Events</h3>
+      <% @events.each do |event| %>
+        <div class='ui segment' class='font'>
+          <% start_time = event.start_time.to_datetime %>
+          "<%= event.title %>" at <%= start_time.strftime("%r") %> on <%= start_time.strftime("%B %d, %Y") %> <br>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

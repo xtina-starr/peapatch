@@ -1,5 +1,5 @@
 class PostMailer < ActionMailer::Base
-  default from: "adapeapatch@gmail.com"
+  default from: 'adapeapatch@gmail.com'
 
   def new_post(post_id)
     @post = Post.find(post_id)

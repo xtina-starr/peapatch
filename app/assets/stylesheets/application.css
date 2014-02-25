@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-
+/*Header*/
 #menu-expander{
   float: right;
 }
@@ -32,20 +32,179 @@ ul.dropdown.visible{
 
 div#logo{
   text-align: center;
+  background-color: rgb(51, 51, 51);
+  font-size: 30px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -khtml-border-radius: 10px;
+}
+
+h2#logo2{
+  color: #e6e6e6;
+  margin-bottom: 0;
+  padding-bottom: 2%;
+  font-family: 'Grand Hotel', cursive;
+  font-style:italic;
+  font-size: 70px;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto 80px auto;
+}
+
+/*Homepage*/
+div#home h3 {
+  color: #9fcc63;
+  font-size: 30px;
+}
+
+div#home-container {
+  margin: 0 auto;
+}
+
+div#home-container a {
+  color: #448c1c;
 }
 
 div.post-button{
   text-align: center;
 }
 
-.right-sidebar{
-  width: 100%;
-  margin-left: 0;
+<<<<<<< HEAD
+div.font {
+  font-family: arial;
 }
-.top-blogs{
-  width: 100%;
-  margin-left: 0;
+
+/*Post Index*/
+div#news-container {
+  margin: 0 auto;
 }
+
+div#news-container a {
+  font-size: 20px;
+  font-family: arial;
+}
+
+div#news-container a:hover {
+  font-weight: bold;
+}
+
+div#top-blogs h4 {
+  text-decoration: underline;
+}
+
+small {
+  font-family: arial;
+}
+
+div#separate {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
+}
+
+div#separate a {
+  color: #9fcc63;
+}
+
+div#separate a:hover {
+  color: #448c1c;
+}
+
+/*Calendar*/
+div#calendar h1 {
+  font-size: 40px;
+}
+
+div.center-calendar {
+  text-align: center;
+  margin: 40px auto;
+}
+
+div.form-container {
+  margin: 60px auto;
+}
+
+div.form {
+  font-family: arial;
+}
+
+div.label {
+  font-size: 30px;
+}
+
+div.field {
+  margin: 20px auto;
+}
+
+/*Tools Library*/
+div#tools {
+  margin: 0 auto;
+}
+
+div#all-tools {
+  text-align: center;
+  margin-top: 40px auto;
+}
+
+div#all-tools table {
+  margin: 0 auto;
+  font-family: arial;
+  border: 2px solid #444;
+  border-collapse: collapse;
+  width: 200px;
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+div#all-tools td {
+  padding: 0.5rem;
+  border: 1px solid #444;
+  white-space: nowrap;
+}
+
+/*Profile*/
+div.email-form {
+  width: 350px;
+}
+
+div.space {
+  margin: 20px auto;
+}
+
+/*div#all-tools table {
+  width: 50%;
+  margin: 0 auto; 
+}*/
+
+p {
+  font-family: arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: arial;
+}
+
+a {
+  text-decoration: none;
+}
+
+ @media all(max-width: 500px){
+  .right-sidebar{
+    width: 100%;
+    margin-left: 0;
+  }
+  .top-blogs{
+    width: 100%;
+    margin-left: 0;
+  }
+ }
 
  @media all(min-width: 500px){
   .right-sidebar{
