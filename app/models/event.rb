@@ -35,7 +35,7 @@ class Event < ActiveRecord::Base
 
   private
   def self.upcoming
-    calendar.find_future_events(options={order_by: 'starttime'}).reverse[0..4]
+    calendar.events.reverse[0..4]
   end
 
   def self.calendar
