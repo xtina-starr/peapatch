@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
       )
     if user.valid?
       @user = user
-      raise
     else
       nil
     end
