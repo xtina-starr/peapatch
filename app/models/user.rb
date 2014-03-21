@@ -21,9 +21,19 @@ class User < ActiveRecord::Base
       access_token_secret: auth_hash['credentials']['secret']
       )
     if user.valid?
-      user
+      @user = user
+      raise
     else
       nil
+    end
+  end
+
+  def self.user_client(user)
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token        = user.token
+      config.access_token_secret = user.secret
     end
   end
 end
